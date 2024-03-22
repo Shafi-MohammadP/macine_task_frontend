@@ -53,7 +53,7 @@ function AchievementCards({ id }) {
       {achievementData.map((achievement, index) => (
         <Card
           key={index}
-          className="mt-6 w-96 md:h-64 bg-[#7067f5]"
+          className="mt-6 md:w-96 md:h-64 bg-[#7067f5]"
           style={{ borderRadius: "33px" }}
         >
           <CardBody className="flex flex-col items-center justify-center py-6">

@@ -6,17 +6,16 @@ import { BaseUrl, imageBaseUrl } from "../constants/Constants";
 import { Loader } from "../Loader/Loader";
 
 function Navbar({ companyName, companyLogo }) {
- ;
   const navigate = useNavigate();
   const handleLogOut = async () => {
     localStorage.removeItem("authToken");
     toast.success("log out successful");
     navigate("/");
   };
- 
+
   return (
     <>
-      <nav className="flex items-center justify-between px-8 py-4 shadow-md">
+      <nav className="flex items-center justify-between py-4 shadow-md">
         <div className="flex items-center">
           <img
             src={imageBaseUrl + companyLogo}
