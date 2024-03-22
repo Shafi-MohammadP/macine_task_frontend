@@ -6,18 +6,18 @@ import { BaseUrl } from "../constants/Constants";
 import axios from "axios";
 
 function WorksDone({ id }) {
-  //   useEffect(() => {
-  //     const apiUrl = `${BaseUrl}company/woks_completed/${id}/`;
-  //     const fetchWorksDone = async () => {
-  //       try {
-  //         const response = await axios.get(apiUrl);
-  //         console.log(response.data);
-  //       } catch (err) {
-  //         console.error(err, "error fetching in works done");
-  //       }
-  //     };
-  //     fetchWorksDone();
-  //   }, []);
+  useEffect(() => {
+    const apiUrl = `${BaseUrl}company/woks_completed/${id}/`;
+    const fetchWorksDone = async () => {
+      try {
+        const response = await axios.get(apiUrl);
+        // console.log(response.data, "--------------->>>");
+      } catch (err) {
+        console.error(err, "error fetching in works done");
+      }
+    };
+    fetchWorksDone();
+  }, []);
   const imageData = [1, 2, 3, 4, 5];
   return (
     <>
