@@ -45,7 +45,6 @@ function App() {
     cover_image,
   } = companyDetails;
   const { social_media } = companyDetails;
-  console.log(social_media, "data");
 
   return (
     <>
@@ -61,6 +60,7 @@ function App() {
       <Compliments complimentText={compliment} />
       <Footer
         companyName={company_name}
+        companyLogo={company_logo}
         address={address}
         city={City}
         state={state}

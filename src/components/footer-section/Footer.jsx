@@ -11,6 +11,7 @@ function Footer({
   postalCode,
   contactNumber,
   socialMedia,
+  companyLogo,
 }) {
   return (
     <>
@@ -20,7 +21,7 @@ function Footer({
             <div className="flex flex-col">
               <div className="flex  items-center gap-4">
                 <img
-                  src={companyLogo}
+                  src={BaseUrl + companyLogo}
                   alt=""
                   className="w-12 h-12 md:w-auto md:h-auto"
                 />

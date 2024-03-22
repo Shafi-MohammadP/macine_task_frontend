@@ -3,7 +3,6 @@ import demoImage from "../../assets/annotate.png";
 import { BaseUrl } from "../constants/Constants";
 
 function Banner({ coverImage }) {
-  console.log(BaseUrl + coverImage, "image");
   return (
     <>
       <div className="relative w-full h-[600px]">
