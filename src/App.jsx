@@ -20,14 +20,30 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const [companyDetails, setCompanyDetails] = useState(null);
-  const details = location.state.companyDetails;
 
   useEffect(() => {
+    const details = location.state?.companyDetails;
     if (!details) {
       navigate("/");
+      return;
     }
     setCompanyDetails(details[0]);
-  }, []);
+    // const data = {
+    //   companyDetails: details,
+    //   expiration: Date.now() + 24 * 60 * 60 * 1000,
+    // };
+    // localStorage.setItem("companyDetails", JSON.stringify(data));
+
+    // setCompanyDetails(details[0]);
+
+    // const storedData = localStorage.getItem("companyDetails");
+    // if (storedData) {
+    //   const { expiration } = JSON.parse(storedData);
+    //   if (expiration && Date.now() > expiration) {
+    //     localStorage.removeItem("companyDetails");
+    //   }
+    // }
+  }, [location.state, navigate]);
 
   if (!companyDetails) {
     return <div>Loading...</div>;
