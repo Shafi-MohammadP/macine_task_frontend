@@ -5,13 +5,13 @@ import axios from "axios";
 import { BaseUrl } from "../constants/Constants";
 function Footer({
   companyName,
+  companyLogo,
   address,
   city,
   state,
   postalCode,
   contactNumber,
   socialMedia,
-  companyLogo,
 }) {
   return (
     <>
@@ -22,8 +22,8 @@ function Footer({
               <div className="flex  items-center gap-4">
                 <img
                   src={BaseUrl + companyLogo}
-                  alt=""
-                  className="w-12 h-12 md:w-auto md:h-auto"
+                  alt="logo"
+                  className="h-8 w-8"
                 />
                 <p className="text-center md:text-left text-white">
                   {companyName}
