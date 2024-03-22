@@ -20,34 +20,30 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const [companyDetails, setCompanyDetails] = useState(null);
-
   useEffect(() => {
     const details = location.state?.companyDetails;
-    if (!details) {
-      navigate("/");
-      return;
-    }
-    setCompanyDetails(details[0]);
-    const data = {
-      companyDetails: details,
-      expiration: Date.now() + 24 * 60 * 60 * 1000,
-    };
-    localStorage.setItem("companyDetails", JSON.stringify(data));
 
-    setCompanyDetails(details[0]);
+    if (details) {
+      setCompanyDetails(details[0]);
+    } else {
+      const storedData = localStorage.getItem("companyDetails");
+      if (storedData) {
+        const { companyDetails, expiration } = JSON.parse(storedData);
 
-    const storedData = localStorage.getItem("companyDetails");
-    if (storedData) {
-      const { expiration } = JSON.parse(storedData);
-      if (expiration && Date.now() > expiration) {
-        localStorage.removeItem("companyDetails");
+        if (expiration && Date.now() < expiration) {
+          setCompanyDetails(companyDetails[0]);
+        } else {
+          localStorage.removeItem("companyDetails");
+        }
+      } else {
+        navigate("/");
       }
     }
   }, [location.state, navigate]);
 
-  if (!companyDetails) {
-    return <div>Loading...</div>;
-  }
+  // if (!companyDetails) {
+  //   return <div>Loading...</div>;
+  // }
   const { address, City, state, postal_code, contact_number } = companyDetails;
   const {
     id,
