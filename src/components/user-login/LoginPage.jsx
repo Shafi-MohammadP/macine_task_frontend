@@ -59,7 +59,7 @@ export function LoginCard() {
   return (
     <>
       {loading && <Loader />}
-      <Card className="md:w-auto">
+      <Card className="md:w-96 md:h-96 flex items-center gap-4">
         <CardHeader
           variant="gradient"
           color="gray"
