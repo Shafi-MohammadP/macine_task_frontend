@@ -2,22 +2,16 @@ import React, { useEffect } from "react";
 import companyLogo from "../../assets/companyLogo.svg";
 import { Input } from "@material-tailwind/react";
 import axios from "axios";
-function Footer() {
-  useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/company/sample/";
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(apiUrl);
-        console.log(response.data, "----------------->");
-      } catch (error) {
-        console.error(error, "error in axios");
-      }
-    };
-
-    // fetchData();
-  }, []);
-
+import { BaseUrl } from "../constants/Constants";
+function Footer({
+  companyName,
+  address,
+  city,
+  state,
+  postalCode,
+  contactNumber,
+  socialMedia,
+}) {
   return (
     <>
       <footer className="bg-blue-950">
@@ -31,14 +25,31 @@ function Footer() {
                   className="w-12 h-12 md:w-auto md:h-auto"
                 />
                 <p className="text-center md:text-left text-white">
-                  Company Name
+                  {companyName}
                 </p>
               </div>
               <div className="flex gap-4 text-2xl py-4 text-white">
-                <i className="ri-instagram-fill"></i>
-                <i className="ri-twitter-fill"></i>
-                <i className="ri-facebook-fill"></i>
-                <i className="ri-linkedin-fill"></i>
+                {socialMedia.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.name === "instagram" && (
+                      <i className="ri-instagram-fill"></i>
+                    )}
+                    {item.name === "twitter" && (
+                      <i className="ri-twitter-fill"></i>
+                    )}
+                    {item.name === "facebook" && (
+                      <i className="ri-facebook-fill"></i>
+                    )}
+                    {item.name === "linked in" && (
+                      <i className="ri-linkedin-fill"></i>
+                    )}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -50,13 +61,13 @@ function Footer() {
             <ul className="mt-4 py-4 md:mt-0">
               {" "}
               <li className="text-center md:text-left text-white mb-2">
-                8779 Cruickshank Crescent
+                {address}
               </li>{" "}
               <li className="text-center md:text-left text-white mb-2">
-                City, Country
+                {city} {state}
               </li>{" "}
               <li className="text-center md:text-left text-white mb-2">
-                Postal Code
+                {postalCode}
               </li>{" "}
             </ul>
           </div>
@@ -66,7 +77,7 @@ function Footer() {
               Contact
             </h3>
             <p className="text-center md:text-left text-white py-4">
-              09876543231
+              {contactNumber}
             </p>
           </div>
           <div className="form__section md:py-7">

@@ -14,23 +14,27 @@ import { BaseUrl } from "./components/constants/Constants";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { Loader } from "./components/Loader/Loader";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [companyDetails, setCompanyDetails] = useState(null);
   const details = location.state.companyDetails;
-  console.log(details, "loiuhdasghugsadhhu");
 
   useEffect(() => {
+    if (!details) {
+      navigate("/");
+    }
     setCompanyDetails(details[0]);
   }, []);
 
   if (!companyDetails) {
     return <div>Loading...</div>;
   }
-
+  const { address, City, state, postal_code, contact_number } = companyDetails;
   const {
+    id,
     company_name,
     vision,
     mission,
@@ -40,21 +44,30 @@ function App() {
     company_logo,
     cover_image,
   } = companyDetails;
-  console.log(company_name);
+  const { social_media } = companyDetails;
+  console.log(social_media, "data");
 
   return (
     <>
-      <Navbar companyName={company_name} coverImage={cover_image} />
+      <Navbar companyName={company_name} companyLogo={company_logo} />
 
-      <Banner />
-      <Vision />
-      <Mission />
-      <Achievements />
-      <Momentum />
-      <Recognition />
+      <Banner coverImage={cover_image} />
+      <Vision visionText={vision} />
+      <Mission missionText={mission} />
+      <Achievements id={id} />
+      <Momentum momentumText={momentum} />
+      <Recognition recognitionText={recognition} />
       <WorksDone />
-      <Compliments />
-      <Footer />
+      <Compliments complimentText={compliment} />
+      <Footer
+        companyName={company_name}
+        address={address}
+        city={City}
+        state={state}
+        postalCode={postal_code}
+        contactNumber={contact_number}
+        socialMedia={social_media}
+      />
     </>
   );
 }

@@ -5,21 +5,21 @@ import toast from "react-hot-toast";
 import { BaseUrl, imageBaseUrl } from "../constants/Constants";
 import { Loader } from "../Loader/Loader";
 
-function Navbar({ companyName, coverImage }) {
-  console.log(companyName, "lkiij");
+function Navbar({ companyName, companyLogo }) {
+ ;
   const navigate = useNavigate();
   const handleLogOut = async () => {
     localStorage.removeItem("authToken");
     toast.success("log out successful");
     navigate("/");
   };
-  console.log(imageBaseUrl + coverImage);
+ 
   return (
     <>
       <nav className="flex items-center justify-between px-8 py-4 shadow-md">
         <div className="flex items-center">
           <img
-            src={imageBaseUrl + coverImage}
+            src={imageBaseUrl + companyLogo}
             alt="cover image"
             className="h-8 w-8"
           />

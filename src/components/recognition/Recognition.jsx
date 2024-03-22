@@ -1,15 +1,12 @@
 import React from "react";
 import recognitionLogo from "../../assets/svg-styles/recognition_full_logo.svg";
-function Recognition() {
+function Recognition({ recognitionText }) {
   return (
     <section>
       <div className="md:flex block md:relative md:py-24 py-4 md:px-28 px-20">
         <div className="w-full relative">
           <p className="md:py-28 py-4 w-full md:text-2xl md:ml-20 mt-20">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque
-            ullam error commodi autem, impedit cumque, distinctio quam maiores
-            nemo iure itaque exercitationem est facilis, id consequuntur vel
-            ducimus quas voluptatem?
+            {recognitionText}
           </p>
         </div>
         <img

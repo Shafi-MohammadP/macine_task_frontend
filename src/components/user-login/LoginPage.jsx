@@ -30,7 +30,7 @@ export function LoginCard() {
     };
     try {
       const response = await axios.post(apiUrl, data);
-      console.log("Login successful!", response.data);
+
       if (response.status === 200) {
         localStorage.setItem("authToken", JSON.stringify(response.data));
         const token = jwtDecode(response.data.access);
@@ -41,7 +41,7 @@ export function LoginCard() {
             Authorization: `Bearer ${response.data.access}`,
           },
         });
-        console.log(companyResponse.data, "---------------");
+
         setCompanyDetails(companyResponse.data);
         toast.success("User logged in successfully");
         setUsername("");

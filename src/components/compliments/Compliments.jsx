@@ -1,6 +1,6 @@
 import React from "react";
 import complimentsLogo from "../../assets/svg-styles/complements_full_logo.svg";
-function Compliments() {
+function Compliments({complimentText}) {
   return (
     <section className="px-11 md:px-28 py-11 md:py-28">
       <div className="md:flex items-center justify-between">
@@ -11,10 +11,7 @@ function Compliments() {
         />
         <div className="md:w-full md:text-2xl relative md:left-[-17rem] md:top-24">
           <p className="w-full">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque
-            ullam error commodi autem, impedit cumque, distinctio quam maiores
-            nemo iure itaque exercitationem est facilis, id consequuntur vel
-            ducimus quas voluptatem?
+           {complimentText}
           </p>
         </div>
       </div>
