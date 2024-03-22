@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button.btn {
+  background: #5960de;
+  color: #fff;
+  padding: 7px 25px;
+  border-radius: 10px;
+}
+button.btn:hover {
+  background: white;
+  color: #0a2b1e;
+}
+.explore__btn {
+  border-radius: 50px;
+  background: transparent;
+  border: 2px solid white;
+}
