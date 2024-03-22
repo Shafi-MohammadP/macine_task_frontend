@@ -57,7 +57,7 @@ function App() {
       <Achievements id={id} />
       <Momentum momentumText={momentum} />
       <Recognition recognitionText={recognition} />
-      <WorksDone />
+      <WorksDone id={id} />
       <Compliments complimentText={compliment} />
       <Footer
         companyName={company_name}

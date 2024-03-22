@@ -7,7 +7,7 @@ function Banner({ coverImage }) {
       <div className="relative w-full h-[600px]">
         <img
           className="absolute inset-0 object-cover w-full h-full"
-          src={demoImage ? demoImage : coverImage}
+          src={coverImage ? coverImage : demoImage}
           alt=""
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
