@@ -2,6 +2,7 @@ import React from "react";
 import demoImage from "../../assets/annotate.png";
 
 function Banner({ coverImage }) {
+  console.log(coverImage, "image");
   return (
     <>
       <div className="relative w-full h-[600px]">
