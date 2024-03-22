@@ -23,7 +23,7 @@ export function LoginCard() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     setLoading(true);
-    const apiUrl = `${BaseUrl}/company/login/`;
+    const apiUrl = `${BaseUrl}company/login/`;
     const data = {
       username: username,
       password: password,
