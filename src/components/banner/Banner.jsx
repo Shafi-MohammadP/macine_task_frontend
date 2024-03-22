@@ -1,14 +1,15 @@
 import React from "react";
 import demoImage from "../../assets/annotate.png";
+import { BaseUrl } from "../constants/Constants";
 
 function Banner({ coverImage }) {
-  console.log(coverImage, "image");
+  console.log(BaseUrl + coverImage, "image");
   return (
     <>
       <div className="relative w-full h-[600px]">
         <img
           className="absolute inset-0 object-cover w-full h-full"
-          src={coverImage ? coverImage : demoImage}
+          src={BaseUrl + coverImage}
           alt=""
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
