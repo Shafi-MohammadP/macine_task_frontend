@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "reactstrap";
 import AchievementCards from "../cards/AchievementCards";
 import WorksDoneCards from "../cards/WorksDoneCards";
@@ -6,19 +6,22 @@ import { BaseUrl } from "../constants/Constants";
 import axios from "axios";
 
 function WorksDone({ id }) {
+  const [workCompleted, setWorkCompleted] = useState([]);
   useEffect(() => {
     const apiUrl = `${BaseUrl}company/woks_completed/${id}/`;
     const fetchWorksDone = async () => {
       try {
         const response = await axios.get(apiUrl);
-        // console.log(response.data, "--------------->>>");
+        if (response.status === 200) {
+          setWorkCompleted(response.data);
+        }
       } catch (err) {
         console.error(err, "error fetching in works done");
       }
     };
     fetchWorksDone();
   }, []);
-  const imageData = [1, 2, 3, 4, 5];
+
   return (
     <>
       <section>
@@ -29,8 +32,8 @@ function WorksDone({ id }) {
           </div>
           <div className="flex justify-center py-7">
             <div className="flex flex-wrap justify-center gap-11 md:w-8/12 xl:w-full">
-              {imageData.map((item, index) => (
-                <WorksDoneCards key={index} />
+              {workCompleted.map((item) => (
+                <WorksDoneCards key={item.id} image={item.image} />
               ))}
             </div>
           </div>
